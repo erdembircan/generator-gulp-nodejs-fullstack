@@ -1,0 +1,24 @@
+{
+  "name": "generator-gulp-nodejs-fullstack",
+  "version": "1.0.0",
+  "description": "Yeoman generator for fullstack Nodejs projects",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": ["yeoman-generator"],
+  "files": ["generators"],
+  "author": "Erdem Bircan <erdem.erdembircan@gmail.com> (https://erdembircan.github.io/)",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/erdembircan/generator-gulp-nodejs-fullstack.git"
+  },
+  "homepage": "https://github.com/erdembircan/generator-gulp-nodejs-fullstack#readme",
+  "license": "MIT",
+  "dependencies": {
+    "yeoman-generator": "^2.0.1"
+  },
+  "devDependencies": {
+    "chalk": "^2.3.0"
+  }
+}

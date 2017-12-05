@@ -1,0 +1,32 @@
+@import url('https://fonts.googleapis.com/css?family=Quicksand');
+
+html
+  box-sizing: border-box
+
+body,html
+  height: 100%
+  margin: 0px
+
+body
+  font-family: 'Quicksand', sans-serif
+  font-size: 40px
+  background-color: rgb(65.9%, 77.6%, 84.3%)
+
+*, *::before, *::after
+  box-sizing: inherit
+
+.page-wrapper
+  height: 100%
+  display: flex
+  justify-content: center
+  align-items: center
+  .welcome-message
+    overflow-y: hidden
+    div
+      transform: translateY(100%)
+      animation: messageEnter 1s cubic-bezier(0.26, 0.92, 1, 1) forwards
+      animation-delay: 1s
+
+@keyframes messageEnter
+  0% {transform: translateY(100%)}
+  100% {transform: translateY(0%)}
