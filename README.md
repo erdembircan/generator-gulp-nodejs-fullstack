@@ -10,6 +10,11 @@
 `npm install -g generator-gulp-nodejs-fullstack `
 
 ---
+## Usage
+
+`yo gulp-nodejs-fullstack`
+
+---
 
 ## Features
 
