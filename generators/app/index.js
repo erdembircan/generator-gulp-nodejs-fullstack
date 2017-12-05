@@ -33,7 +33,7 @@ module.exports = class extends Generator {
     this.fs.copyTpl(this.templatePath('gulpfile.js'), this.destinationPath('./gulpfile.js'));
     this.fs.copyTpl(this.templatePath('gulppaths.js'), this.destinationPath('./gulppaths.js'));
     this.fs.copyTpl(this.templatePath('.babelrc'), this.destinationPath('./.babelrc'));
-    this.fs.copyTpl(this.templatePath('.gitignore'), this.destinationPath('./.gitignore'));
+    this.fs.copyTpl(this.templatePath('.gitignored'), this.destinationPath('./.gitignore'));
     this.fs.copyTpl(this.templatePath('src'), this.destinationPath('./src'));
   }
 
