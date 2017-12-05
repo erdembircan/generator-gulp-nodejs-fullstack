@@ -13,7 +13,6 @@ module.exports = class extends Generator {
     this._npmInit();
   }
 
-  
   writing() {
     const data = fs.readFileSync(this.destinationPath('./package.json'), 'utf8');
     const dataJSON = JSON.parse(data);
@@ -34,6 +33,7 @@ module.exports = class extends Generator {
     this.fs.copyTpl(this.templatePath('gulpfile.js'), this.destinationPath('./gulpfile.js'));
     this.fs.copyTpl(this.templatePath('gulppaths.js'), this.destinationPath('./gulppaths.js'));
     this.fs.copyTpl(this.templatePath('.babelrc'), this.destinationPath('./.babelrc'));
+    this.fs.copyTpl(this.templatePath('.gitignore'), this.destinationPath('./.gitignore'));
     this.fs.copyTpl(this.templatePath('src'), this.destinationPath('./src'));
   }
 
@@ -53,6 +53,8 @@ module.exports = class extends Generator {
   }
 
   _finalOutput() {
+    this.spawnCommandSync('git', ['add', '-A']);
+    this.spawnCommandSync('git', ['commit', '-m', '"generator initial commit"']);
     console.log(makeItFabolus('use "npm start" command'));
   }
 };

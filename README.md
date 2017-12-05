@@ -21,6 +21,7 @@
 ![Logo](docs/assets/babel.png)
 ![Logo](docs/assets/jest.png)
 ![Logo](docs/assets/express.png)
+![Logo](docs/assets/git.png)
 
 
 ---
