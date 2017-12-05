@@ -7,7 +7,7 @@
 ---
 ## Installation
 
-`npm install -g generator-gulp-node-fullstack `
+`npm install -g generator-gulp-nodejs-fullstack `
 
 ---
 
