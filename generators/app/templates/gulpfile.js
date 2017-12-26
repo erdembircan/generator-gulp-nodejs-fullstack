@@ -75,18 +75,19 @@ function createBundle(src) {
   return b;
 }
 
-function bundle(b, outputPath) {
+function bundle(b, outputPath, callback = () => {}) {
   const splitPath = outputPath.split('/');
   const outputFile = splitPath[splitPath.length - 1];
 
   return b
     .bundle()
-    .on('error', plugins.util.log.bind(plugins.util, 'Browserift Error'))
+    .on('error', plugins.util.log.bind(plugins.util, 'Browserify Error'))
     .pipe(source(outputFile))
     .pipe(buffer())
     .pipe(plugins.sourcemaps.init({ loadMaps: true }))
     .pipe(plugins.sourcemaps.write('./'))
-    .pipe(gulp.dest(paths.clientJsDest));
+    .pipe(gulp.dest(paths.clientJsDest))
+    .on('end', callback);
 }
 
 /**
@@ -146,11 +147,10 @@ gulp.task('watch', () => {
   gulp.watch(['src/server/**/*.js'], ['server:js']);
   gulp.watch(['src/server/templates/**/*.hbs'], ['server:templates']);
   gulp.watch(['src/client/sass/**/*.sass'], ['client:css']);
-  gulp.watch(['build/client/js/**/*.js'], ['browserSync:reload']);
 
   Object.keys(jsBundles).map((key) => {
     const b = jsBundles[key];
-    b.on('update', () => bundle(b, key));
+    b.on('update', () => bundle(b, key, browserSync.reload));
   });
 });
 
